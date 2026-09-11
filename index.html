@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <!-- ============================================================
+       TEMEL META ETİKETLERİ
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akdeniz Oto Bakım &amp; Lastik Merkezi | Kepez, Antalya</title>
+  <meta name="description" content="Akdeniz Oto Bakım & Lastik — Kepez, Antalya'da periyodik bakım, fren, lastik, balans-rot, klima ve akü hizmeti. Randevu için tek tıkla arayın veya WhatsApp'tan yazın." />
+  <meta name="keywords" content="antalya oto servis, antalya lastikçi, kepez oto bakım, fren balata, lastik değişimi, balans rot ayarı, klima bakımı, akü değişimi" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Akdeniz Oto Bakım & Lastik Merkezi" />
+  <link rel="canonical" href="https://regular07.github.io/demo-otoservis/" />
+
+  <!-- ============================================================
+       SEO — Open Graph ve Twitter Card
+       Site bir linkle (WhatsApp, Instagram bio vb.) paylaşıldığında
+       önizleme kartı buradan gelir.
+       ============================================================ -->
+  <meta property="og:type" content="business.business" />
+  <meta property="og:site_name" content="Akdeniz Oto Bakım & Lastik Merkezi" />
+  <meta property="og:title" content="Akdeniz Oto Bakım & Lastik Merkezi | Kepez, Antalya" />
+  <meta property="og:description" content="Periyodik bakım, fren, lastik, balans-rot, klima ve akü hizmeti. Randevu için tek tıkla arayın." />
+  <meta property="og:image" content="https://regular07.github.io/demo-otoservis/assets/img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Akdeniz Oto Bakım & Lastik Merkezi ana sayfa görünümü" />
+  <meta property="og:url" content="https://regular07.github.io/demo-otoservis/" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Akdeniz Oto Bakım & Lastik Merkezi" />
+  <meta name="twitter:description" content="Kepez, Antalya'da periyodik bakım, fren, lastik, balans-rot, klima ve akü hizmeti." />
+  <meta name="twitter:image" content="https://regular07.github.io/demo-otoservis/assets/img/og.jpg" />
+
+  <!-- Favicon: harici dosya yerine inline SVG, ekstra istek yaratmaz -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23181b1f'/%3E%3Ctext x='50' y='68' font-size='54' text-anchor='middle' fill='%23ff6b1a' font-family='Arial,sans-serif' font-weight='900'%3EA%3C/text%3E%3C/svg%3E" />
+
+  <!-- ============================================================
+       HARİCİ KÜTÜPHANELER — Bootstrap 5.3 (CDN) + Bootstrap Icons +
+       Google Fonts (Barlow Condensed: başlıklar / Inter: gövde metni).
+       Derleme adımı yok; site doğrudan bir statik dosya sunucusuyla
+       açılır (bkz. README).
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Kendi stilimiz Bootstrap'ten SONRA: override sırası için önemli.
+       ?v= parametresi tarayıcı cache'ini kırmak için, her önemli
+       değişiklikte artırılabilir. -->
+  <link rel="stylesheet" href="style.css?v=1" />
+
+  <!-- ============================================================
+       SEO — Yapılandırılmış Veri (JSON-LD / schema.org)
+       Google'ın işletmeyi "AutoRepair" olarak tanıması, arama
+       sonuçlarında adres/saat/telefon gibi zengin bilgi göstermesi
+       için. Sayfa görünümünü etkilemez.
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Akdeniz Oto Bakım & Lastik Merkezi",
+    "image": "https://regular07.github.io/demo-otoservis/assets/img/og.jpg",
+    "@id": "https://regular07.github.io/demo-otoservis/",
+    "url": "https://regular07.github.io/demo-otoservis/",
+    "telephone": "+905353000000",
+    "priceRange": "₺₺",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Yıldız Caddesi No:27",
+      "addressLocality": "Kepez",
+      "addressRegion": "Antalya",
+      "postalCode": "07090",
+      "addressCountry": "TR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:30",
+        "closes": "18:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "16:00"
+      }
+    ],
+    "sameAs": [
+      "https://instagram.com/",
+      "https://wa.me/905353000000"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR — tek sayfa içi çapa (anchor) linkleri
+       ============================================================ -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">Akdeniz <span>Oto Bakım</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarContent" aria-controls="navbarContent"
+              aria-expanded="false" aria-label="Menüyü aç/kapat">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#hakkimizda">Hakkımızda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hizmetler">Hizmetler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#markalar">Marka Uzmanlığı</a></li>
+          <li class="nav-item"><a class="nav-link" href="#saatler">Saatler &amp; Konum</a></li>
+          <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
+          <li class="nav-item">
+            <a class="btn btn-brand ms-lg-2" href="tel:+905353000000"><i class="bi bi-telephone-fill"></i> Hemen Ara</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============================================================
+         HERO — CTA'lar ön planda: arama ve WhatsApp
+         ============================================================ -->
+    <header id="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <p class="eyebrow">Kepez · Antalya · 2013'ten beri</p>
+        <h1 class="hero-title">Aracınız emin ellerde, randevunuz tek telefonda.</h1>
+        <p class="hero-sub">Periyodik bakımdan lastik değişimine, fren sisteminden klima bakımına kadar tüm işlemler aynı gün içinde. Formla uğraşmayın, doğrudan arayın.</p>
+        <div class="hero-btns">
+          <a href="tel:+905353000000" class="btn btn-brand btn-lg"><i class="bi bi-telephone-fill"></i> Randevu İçin Ara</a>
+          <a href="https://wa.me/905353000000?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener" class="btn btn-outline-brand btn-lg"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+        <p class="hero-note"><i class="bi bi-clock-fill"></i> Online randevu formu yok — arayın, aynı gün içinde yerinizi ayırtalım.</p>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         HAKKIMIZDA
+         ============================================================ -->
+    <section id="hakkimizda" class="section">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-12 col-lg-6">
+            <p class="sec-eyebrow">Hakkımızda</p>
+            <h2 class="sec-title">Ustalık, doğru parça ve dürüst fiyat.</h2>
+            <p class="sec-lead">
+              Akdeniz Oto Bakım &amp; Lastik Merkezi, 2013'ten bu yana Kepez'de hizmet veren
+              usta ekibiyle çalışan bir bakım atölyesidir. Her aracı yerinde inceler, gerekmeyen
+              işlemi önermeyiz. Kullandığımız yedek parçalar orijinal veya orijinal muadili
+              kalitededir, fiyat teklifini işleme başlamadan önce söyleriz.
+            </p>
+            <div class="about-stats">
+              <div class="about-stat"><strong>13</strong><span>yıllık deneyim</span></div>
+              <div class="about-stat"><strong>6</strong><span>uzman usta</span></div>
+              <div class="about-stat"><strong>4</strong><span>çalışır lift</span></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="about-visual">
+              <div>
+                <span class="quote-mark">"</span>
+                <p>Bir aracın bakımı değil, yolculuğun güvenliği bizim işimiz.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HİZMETLER + FİYAT TABLOSU
+         ============================================================ -->
+    <section id="hizmetler" class="section alt">
+      <div class="container">
+        <p class="sec-eyebrow">Hizmetler</p>
+        <h2 class="sec-title">Hizmet Listesi &amp; Fiyatlar</h2>
+        <p class="sec-lead mb-4">Fiyatlar araç model ve parça seçimine göre değişebilir; kesin fiyat aracı görünce telefon veya yerinde bilgi ile netleşir.</p>
+
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <h3 class="service-group-title">Bakım &amp; Onarım</h3>
+            <div class="price-table mb-4">
+              <div class="price-row">
+                <span><span class="p-name">Periyodik Bakım</span><span class="p-desc">Yağ + filtre seti dahil</span></span>
+                <span class="p-value">1.800 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Ön Fren Balatası</span><span class="p-desc">Parça + işçilik</span></span>
+                <span class="p-value">1.200 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Fren Diski Değişimi</span><span class="p-desc">Çift taraf, parça + işçilik</span></span>
+                <span class="p-value">2.400 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Akü Değişimi</span><span class="p-desc">Test + takma dahil</span></span>
+                <span class="p-value">2.200 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Klima Bakımı</span><span class="p-desc">Gaz dolumu + kaçak kontrolü</span></span>
+                <span class="p-value">900 ₺'den</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <h3 class="service-group-title">Lastik &amp; Denge</h3>
+            <div class="price-table mb-4">
+              <div class="price-row">
+                <span><span class="p-name">Lastik Değişimi</span><span class="p-desc">4 adet, söküp-takma dahil</span></span>
+                <span class="p-value">800 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Mevsimlik Lastik Deposu</span><span class="p-desc">Sezon boyu, 4 adet</span></span>
+                <span class="p-value">1.000 ₺</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Sıcak/Soğuk Montaj</span><span class="p-desc">Tekerlek başına</span></span>
+                <span class="p-value">150 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Balans Ayarı</span><span class="p-desc">4 tekerlek</span></span>
+                <span class="p-value">600 ₺</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Rot Ayarı</span><span class="p-desc">Ön aks, ölçüm raporu ile</span></span>
+                <span class="p-value">700 ₺'den</span>
+              </div>
+            </div>
+            <p class="price-note">* Fiyatlar 2026 sezonu içindir, parça ve işçilik maliyetlerine göre güncellenebilir.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MARKA / MODEL UZMANLIĞI
+         Gerçek marka logosu YOK, sadece metin olarak marka isimleri.
+         ============================================================ -->
+    <section id="markalar" class="section">
+      <div class="container">
+        <p class="sec-eyebrow">Marka Uzmanlığı</p>
+        <h2 class="sec-title">Hangi Araçlarda Deneyimliyiz?</h2>
+        <p class="sec-lead mb-4">
+          Yerli ve ithal binek araçlarda, ayrıca hafif ticari araçlarda geniş deneyime sahip
+          bir ekibiz. Ekibimiz düzenli olarak <strong>Renault, Fiat, Ford, Hyundai, Toyota,
+          Volkswagen ve Opel</strong> gibi markalarda, hafif ticari tarafta ise <strong>Ducato,
+          Transit ve Doblo</strong> gibi araçlarda çalışıyor. Farklı bir markanız varsa da
+          yerinde inceleyip bilgi veriyoruz — arayın, sorun.
+        </p>
+        <div class="row g-3">
+          <div class="col-6 col-md-3">
+            <div class="brand-chip"><i class="bi bi-car-front-fill"></i><span>Yerli &amp; İthal Binek</span></div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="brand-chip"><i class="bi bi-truck"></i><span>Hafif Ticari</span></div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="brand-chip"><i class="bi bi-gear-wide-connected"></i><span>Motor &amp; Şanzıman</span></div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="brand-chip"><i class="bi bi-cpu-fill"></i><span>Elektronik Arıza Tespiti</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GALERİ — fotoğraf yerine tipografik/desen blokları
+         (marka güvenliği + hız için; iyi tasarım fotoğrafsız da satar)
+         ============================================================ -->
+    <section id="galeri" class="section alt">
+      <div class="container">
+        <p class="sec-eyebrow">Galeri</p>
+        <h2 class="sec-title">Atölyeden Kareler</h2>
+        <div class="row g-3">
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g1"><span>Lift Alanı</span></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g2"><span>Lastik Deposu</span></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g3"><span>Balans Ünitesi</span></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g4"><span>Bekleme Salonu</span></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g5"><span>Yedek Parça Rafı</span></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g6"><span>Klima Bakım İstasyonu</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RANDEVU VURGUSU — form yok, arama/WhatsApp odaklı banner
+         ============================================================ -->
+    <section id="randevu" class="section randevu-band">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-lg-8">
+            <p class="sec-eyebrow" style="color: var(--accent-light);">Randevu</p>
+            <h2 class="randevu-title">Online form yok, işler telefonla çok daha hızlı.</h2>
+            <p class="randevu-sub">Aracınızın markasını, modelini ve yapılmasını istediğiniz işlemi söyleyin, size uygun en yakın saati verelim. Yoğun günlerde bile genelde aynı gün içinde sıra buluyoruz.</p>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="randevu-cta">
+              <a href="tel:+905353000000" class="btn btn-brand btn-lg w-100"><i class="bi bi-telephone-fill"></i> 0535 300 00 00</a>
+              <a href="https://wa.me/905353000000?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener" class="btn btn-outline-brand btn-lg w-100"><i class="bi bi-whatsapp"></i> WhatsApp'tan Yaz</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ÇALIŞMA SAATLERİ + KONUM
+         ============================================================ -->
+    <section id="saatler" class="section">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-12 col-lg-5">
+            <p class="sec-eyebrow">Çalışma Saatleri</p>
+            <h2 class="sec-title">Ne Zaman Açığız?</h2>
+            <ul class="hours-list">
+              <li data-day="1"><span>Pazartesi</span><strong>08:30 – 18:30</strong></li>
+              <li data-day="2"><span>Salı</span><strong>08:30 – 18:30</strong></li>
+              <li data-day="3"><span>Çarşamba</span><strong>08:30 – 18:30</strong></li>
+              <li data-day="4"><span>Perşembe</span><strong>08:30 – 18:30</strong></li>
+              <li data-day="5"><span>Cuma</span><strong>08:30 – 18:30</strong></li>
+              <li data-day="6"><span>Cumartesi</span><strong>09:00 – 16:00</strong></li>
+              <li data-day="7"><span>Pazar</span><strong>Kapalı</strong></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-7">
+            <p class="sec-eyebrow">Konum</p>
+            <h2 class="sec-title">Bizi Bulun</h2>
+            <div class="map-frame">
+              <iframe
+                src="https://maps.google.com/maps?q=Kepez%2C%20Antalya&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                title="Akdeniz Oto Bakım & Lastik Merkezi konum haritası" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         İLETİŞİM
+         ============================================================ -->
+    <section id="iletisim" class="section alt">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="row g-4 align-items-center">
+            <div class="col-12 col-lg-7">
+              <p class="sec-eyebrow" style="color: var(--accent-light);">İletişim</p>
+              <h2>Randevu Almak İster misiniz?</h2>
+              <ul class="contact-list">
+                <li><i class="bi bi-geo-alt-fill"></i> Yıldız Caddesi No:27, Kepez, Antalya</li>
+                <li><i class="bi bi-telephone-fill"></i> <a href="tel:+905353000000">0535 300 00 00</a></li>
+                <li><i class="bi bi-telephone-fill"></i> <a href="tel:+902423000000">0242 300 00 00</a> (atölye sabit hat)</li>
+                <li><i class="bi bi-envelope-fill"></i> <a href="mailto:info@ornek.demo">info@ornek.demo</a></li>
+              </ul>
+              <div class="contact-cta">
+                <a href="tel:+905353000000" class="btn btn-brand"><i class="bi bi-telephone-fill"></i> Ara</a>
+                <a href="https://wa.me/905353000000?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener" class="btn btn-outline-brand"><i class="bi bi-whatsapp"></i> WhatsApp'tan Yaz</a>
+              </div>
+            </div>
+            <div class="col-12 col-lg-5">
+              <div class="about-visual" style="min-height:180px; background: linear-gradient(150deg, var(--accent), var(--accent-dark) 140%);">
+                <p style="font-style: normal; font-size: 1rem;">Bu, Demosantia tarafından hazırlanmış <strong>örnek bir demo sitedir</strong>. İşletme adı, adres ve iletişim bilgileri kurgusaldır.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-12 col-md-6">
+          <span class="footer-brand">Akdeniz <span>Oto Bakım</span></span>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="text-decoration-none footer-social"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="yil">2026</span> Akdeniz Oto Bakım &amp; Lastik Merkezi. Tüm hakları saklıdır.</span>
+        <span>Web tasarım: <a href="https://regular07.github.io/demosantia/" target="_blank" rel="noopener">Demosantia</a> — bu bir portfolyo demosudur.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sağ altta sabit hızlı erişim butonları -->
+  <a href="https://wa.me/905353000000" target="_blank" rel="noopener" id="whatsappFab" aria-label="WhatsApp ile yaz">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+  <a href="tel:+905353000000" id="callFab" aria-label="Hemen ara">
+    <i class="bi bi-telephone-fill"></i>
+  </a>
+  <button id="scrollTop" aria-label="Yukarı çık"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Scriptler: önce Bootstrap, en son kendi kodumuz -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

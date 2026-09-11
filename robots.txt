@@ -1,0 +1,5 @@
+# Akdeniz Oto Bakım & Lastik Merkezi — arama motoru yönergeleri
+User-agent: *
+Allow: /
+
+Sitemap: https://regular07.github.io/demo-otoservis/sitemap.xml

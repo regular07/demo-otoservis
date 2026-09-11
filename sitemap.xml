@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Tek sayfalık site (Basic paket): sitemap'te tek giriş var.
+     Bölümler aynı sayfanın çapaları olduğu için ayrı URL sayılmaz. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://regular07.github.io/demo-otoservis/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

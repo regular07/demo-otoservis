@@ -1,0 +1,618 @@
+/* ============================================================
+   AKDENİZ OTO BAKIM & LASTİK — style.css
+   Demosantia portfolyo demosu · Basic paket · tek sayfa
+
+   TASARIM YÖNÜ
+   Sektör: oto servis. Ton "atölye" — koyu antrasit zemin,
+   tek güçlü turuncu vurgu, kondens başlık tipografisi.
+   Kuaför (bakır/zarif) ve klinik (mavi/ferah) demolarına
+   kasten benzemiyor: portfolyonun amacı yelpaze göstermek.
+
+   Fotoğraf YOK. Derinlik gradyan + çizgi deseni ile veriliyor.
+   İÇİNDEKİLER
+     01. Değişkenler ve temel
+     02. Butonlar
+     03. Navbar
+     04. Hero
+     05. Bölüm başlıkları
+     06. Hakkımızda
+     07. Hizmet / fiyat tablosu
+     08. Marka çipleri
+     09. Galeri
+     10. Çalışma saatleri
+     11. Randevu şeridi
+     12. İletişim
+     13. Footer
+     14. Sabit butonlar
+     15. Mobil
+   ============================================================ */
+
+/* ============================================================
+   01. DEĞİŞKENLER VE TEMEL
+   ============================================================ */
+:root {
+  --ink: #181b1f;          /* ana koyu — atölye zemini */
+  --ink-2: #21262c;        /* kart / panel zemini */
+  --ink-3: #2c333a;        /* kenarlık, ayraç */
+  --accent: #ff6b1a;       /* turuncu — TEK vurgu rengi */
+  --accent-dark: #d4520d;
+  --accent-light: #ff9a5c; /* koyu zemin üstünde okunaklı açık ton */
+  --bg: #f4f5f6;           /* açık bölüm zemini */
+  --bg-2: #e8eaec;
+  --paper: #ffffff;
+  --txt: #181b1f;
+  --txt-mid: #4d545b;
+  --txt-light: #848d96;
+  --on-dark: #eef0f2;
+  --on-dark-mid: rgba(238, 240, 242, 0.72);
+  --border: rgba(24, 27, 31, 0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 2px 12px rgba(24, 27, 31, 0.07);
+  --shadow-md: 0 14px 34px rgba(24, 27, 31, 0.16);
+  --tr: 0.22s ease;
+
+  --bs-primary: var(--accent);
+  --bs-body-font-family: 'Inter', system-ui, sans-serif;
+  --bs-body-color: var(--txt);
+  --bs-link-color: var(--accent);
+  --bs-link-hover-color: var(--accent-dark);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* Çapa linkiyle bölüme atlarken başlık sabit navbar'ın altında kalmasın */
+  scroll-padding-top: 84px;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--txt);
+  background: var(--paper);
+  line-height: 1.65;
+  overflow-x: hidden;        /* yatay taşmaya karşı emniyet */
+  padding-top: 66px;         /* sabit navbar payı */
+}
+
+h1, h2, h3, .hero-title, .sec-title, .randevu-title, .service-group-title {
+  font-family: 'Barlow Condensed', 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+/* .sec-title taşımayan düz h2/h3'ler de makul bir ölçekte dursun */
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.45rem); }
+
+img { max-width: 100%; height: auto; }
+a { text-decoration: none; }
+
+.section { padding: 4.5rem 0; }
+.section.alt { background: var(--bg); }
+
+/* ============================================================
+   02. BUTONLAR
+   Minimum 44px yükseklik — mobil dokunma hedefi.
+   ============================================================ */
+.btn {
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all var(--tr);
+  border: 2px solid transparent;
+}
+.btn-brand {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+}
+.btn-brand:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+
+/* Turuncu konturlu ikincil buton.
+   Turuncu hem koyu hem beyaz zeminde okunduğu için tek varyant yeterli —
+   hero (koyu) ile iletişim paneli (beyaz) aynı butonu paylaşıyor. */
+.btn-outline-brand {
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+  padding: 0.6rem 1.4rem;
+}
+.btn-outline-brand:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.btn-lg { font-size: 1.02rem; padding: 0.8rem 1.7rem; min-height: 52px; }
+
+/* ============================================================
+   03. NAVBAR
+   Başta şeffaf, scroll edilince koyulaşır (script.js).
+   ============================================================ */
+#mainNavbar {
+  background: rgba(24, 27, 31, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0.55rem 0;
+  transition: background var(--tr), box-shadow var(--tr);
+}
+#mainNavbar.scrolled { background: rgba(24, 27, 31, 0.98); box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3); }
+
+.navbar-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--on-dark);
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.navbar-brand:hover { color: var(--on-dark); }
+.navbar-brand span { color: var(--accent); }
+.brand-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+
+#mainNavbar .nav-link {
+  color: var(--on-dark-mid);
+  font-weight: 500;
+  font-size: 0.94rem;
+  padding: 0.5rem 0.85rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  transition: color var(--tr);
+}
+#mainNavbar .nav-link:hover,
+#mainNavbar .nav-link.active { color: var(--accent); }
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.25);
+  min-width: 44px; min-height: 44px;
+}
+.navbar-toggler:focus { box-shadow: 0 0 0 3px rgba(255, 107, 26, 0.35); }
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28238,240,242,0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ============================================================
+   04. HERO
+   Fotoğraf yok: gradyan + eğik çizgi deseni derinlik veriyor.
+   GÖRSEL EKLEMEK İÇİN: assets/img/hero.jpg koy ve aşağıdaki
+   background-image satırının sonuna , url('assets/img/hero.jpg')
+   ekle. (Dosya yokken url() bırakmak konsola 404 yazar.)
+   ============================================================ */
+#hero {
+  position: relative;
+  min-height: 82vh;
+  min-height: 82svh;
+  display: flex;
+  align-items: center;
+  padding: 5rem 0 4rem;
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(152deg, #14171a 0%, #23282e 52%, rgba(255, 107, 26, 0.4) 150%);
+  overflow: hidden;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    118deg,
+    rgba(255, 255, 255, 0.028) 0 2px,
+    transparent 2px 24px
+  );
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; max-width: 760px; }
+
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+.hero-title {
+  font-size: clamp(2.3rem, 6vw, 4rem);
+  color: var(--on-dark);
+  margin-bottom: 1.1rem;
+}
+.hero-sub {
+  color: var(--on-dark-mid);
+  font-size: 1.06rem;
+  max-width: 620px;
+  margin-bottom: 1.8rem;
+}
+.hero-btns { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.6rem; }
+.hero-note {
+  color: rgba(238, 240, 242, 0.55);
+  font-size: 0.88rem;
+  display: flex; align-items: center; gap: 0.45rem;
+  margin: 0;
+}
+.hero-note i { color: var(--accent); }
+
+/* ============================================================
+   05. BÖLÜM BAŞLIKLARI
+   ============================================================ */
+.sec-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+.sec-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 0.7rem; }
+.sec-lead { color: var(--txt-mid); max-width: 680px; }
+
+/* ============================================================
+   06. HAKKIMIZDA
+   ============================================================ */
+/* Fotoğraf yerine renk bloğu: koyu gradyan + çizgi dokusu.
+   Bazı kullanımlarda HTML'de inline background veriliyor (turuncu
+   varyant); o zaman aşağıdaki varsayılan geçersiz kalır. */
+.about-visual {
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(150deg, #23282e, #14171a 130%);
+  color: var(--on-dark);
+  min-height: 260px;
+  padding: 2rem 1.8rem;
+  display: flex;
+  align-items: center;
+}
+.about-visual::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(118deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 22px);
+  pointer-events: none;
+}
+/* İçerik dokunun üstünde kalsın */
+.about-visual > * { position: relative; z-index: 1; }
+.about-visual p { font-size: 1.15rem; font-style: italic; margin: 0; line-height: 1.5; }
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+.about-stat {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem 0.9rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.about-stat strong {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.about-stat span { font-size: 0.82rem; color: var(--txt-light); }
+
+/* Dekoratif büyük tırnak işareti — alıntının üstünde durur */
+.quote-mark {
+  display: block;
+  font-family: 'Barlow Condensed', serif;
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 0.6;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+
+/* ============================================================
+   07. HİZMET / FİYAT TABLOSU
+   Müşteri fiyat arıyor; "…'den" ile aralık verip güven kuruyoruz.
+   ============================================================ */
+.service-group-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+.price-table {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1.15rem;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--tr);
+}
+.price-row:last-child { border-bottom: none; }
+.price-row:hover { background: var(--bg); }
+
+.p-name { display: block; font-weight: 600; font-size: 0.98rem; }
+.p-desc { display: block; font-size: 0.82rem; color: var(--txt-light); }
+.p-value {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.price-note { font-size: 0.85rem; color: var(--txt-light); margin-top: 0.5rem; }
+
+/* ============================================================
+   08. MARKA ÇİPLERİ
+   ============================================================ */
+.brand-chip {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem 0.85rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all var(--tr);
+}
+.brand-chip:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.brand-chip i { font-size: 1.6rem; color: var(--accent); }
+
+/* ============================================================
+   09. GALERİ
+   Fotoğraf yerine renk/desen blokları — her biri farklı tonda.
+   ============================================================ */
+.gallery-item {
+  height: 180px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: flex-end;
+  padding: 0.9rem;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+}
+.gallery-item::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(118deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 20px);
+}
+.gallery-item span { position: relative; z-index: 1; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+.gallery-item.g1 { background: linear-gradient(150deg, #23282e, #3a424a); }
+.gallery-item.g2 { background: linear-gradient(150deg, #2c333a, #ff6b1a 190%); }
+.gallery-item.g3 { background: linear-gradient(150deg, #1f242a, #4a545e); }
+.gallery-item.g4 { background: linear-gradient(150deg, #3a424a, #23282e); }
+.gallery-item.g5 { background: linear-gradient(150deg, #d4520d, #23282e 130%); }
+.gallery-item.g6 { background: linear-gradient(150deg, #2c333a, #1a1e22); }
+
+/* ============================================================
+   10. ÇALIŞMA SAATLERİ
+   Bugünün satırı JS ile "today" sınıfı alıp vurgulanır.
+   ============================================================ */
+.hours-list { list-style: none; padding: 0; margin: 1.2rem 0 0; }
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: background var(--tr);
+}
+.hours-list li:last-child { border-bottom: none; }
+.hours-list li strong { font-weight: 600; white-space: nowrap; }
+.hours-list li.today {
+  background: rgba(255, 107, 26, 0.1);
+  border-left: 3px solid var(--accent);
+  border-bottom-color: transparent;
+}
+.hours-list li.today span::after {
+  content: ' · bugün';
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+/* "Şu an açığız / kapalıyız" rozeti — script.js tarafından
+   listenin hemen altına eklenir, HTML'de karşılığı yoktur. */
+.hours-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.7rem 0.95rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.hours-status.is-open { background: rgba(47, 158, 111, 0.12); color: #1f7d55; }
+.hours-status.is-closed { background: rgba(24, 27, 31, 0.06); color: var(--txt-mid); }
+
+.map-frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  min-height: 300px;
+}
+.map-frame iframe { display: block; width: 100%; height: 100%; min-height: 300px; border: 0; }
+
+/* ============================================================
+   11. RANDEVU ŞERİDİ
+   Basic pakette form YOK — telefon tek kanal, bilerek vurgulanıyor.
+   ============================================================ */
+.randevu-band {
+  background: var(--ink);
+  background-image: linear-gradient(140deg, #1a1e22, #2c333a 60%, rgba(255,107,26,0.35) 160%);
+  color: var(--on-dark);
+  padding: 3.6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.randevu-band::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(118deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 24px);
+}
+.randevu-band .container { position: relative; z-index: 1; }
+.randevu-title { font-size: clamp(1.7rem, 4vw, 2.5rem); margin-bottom: 0.7rem; }
+.randevu-sub { color: var(--on-dark-mid); max-width: 620px; margin-bottom: 1.5rem; }
+.randevu-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+/* ============================================================
+   12. İLETİŞİM
+   ============================================================ */
+.contact-panel {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+.contact-list { list-style: none; padding: 0; margin: 0 0 1.2rem; }
+.contact-list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.94rem;
+  word-break: break-word;      /* uzun e-posta taşmasın */
+}
+.contact-list li:last-child { border-bottom: none; }
+.contact-list i { color: var(--accent); font-size: 1.1rem; margin-top: 0.15rem; flex-shrink: 0; }
+.contact-list a { color: var(--txt); }
+.contact-list a:hover { color: var(--accent); }
+.contact-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+/* ============================================================
+   13. FOOTER
+   ============================================================ */
+#footer {
+  background: var(--ink);
+  color: var(--on-dark-mid);
+  padding: 2.4rem 0 1.6rem;
+}
+.footer-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--on-dark);
+  display: inline-flex; align-items: center; gap: 0.45rem;
+}
+.footer-brand span { color: var(--accent); }
+.footer-social a { color: var(--accent); font-size: 1.3rem; margin-left: 0.7rem; }
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  margin-top: 1.4rem;
+  padding-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+}
+.footer-bottom a { color: var(--accent); }
+
+/* ============================================================
+   14. SABİT BUTONLAR
+   ============================================================ */
+#whatsappFab, #callFab {
+  position: fixed;
+  right: 18px;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  z-index: 60;
+  box-shadow: 0 8px 22px -6px rgba(0, 0, 0, 0.5);
+  transition: transform var(--tr);
+}
+#whatsappFab { bottom: 18px; background: #25d366; }
+#callFab { bottom: 84px; background: var(--accent); }
+#whatsappFab:hover, #callFab:hover { transform: translateY(-2px); color: #fff; }
+
+#scrollTop {
+  position: fixed;
+  left: 18px; bottom: 18px;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--txt);
+  z-index: 60;
+  display: none;
+  align-items: center; justify-content: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+#scrollTop.show { display: flex; }
+#scrollTop:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ============================================================
+   15. MOBİL
+   360px'de yatay taşma olmamalı — ölçerek doğrulanıyor.
+   ============================================================ */
+@media (max-width: 991px) {
+  #mainNavbar .navbar-collapse {
+    background: rgba(24, 27, 31, 0.98);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Bootstrap'te g-5 gutter'ı 3rem; satıra -24px negatif margin verir ama
+     .container'ın yan boşluğu 12px olduğu için 360px'de 12px yatay taşma
+     oluşuyordu (ölçülerek bulundu). Mobilde gutter'ı 1.5rem'e indiriyoruz:
+     negatif margin -12px olup container boşluğuyla tam örtüşüyor. */
+  .row { --bs-gutter-x: 1.5rem; }
+
+  .section { padding: 3.2rem 0; }
+  #hero { min-height: 100svh; padding-top: 4rem; }
+  .hero-btns .btn { flex: 1 1 100%; }
+  .about-stats { grid-template-columns: 1fr; }
+  .price-row { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+  .p-value { font-size: 1.1rem; }
+  .gallery-item { height: 140px; }
+  .footer-bottom { flex-direction: column; }
+  #whatsappFab, #callFab { width: 50px; height: 50px; font-size: 1.3rem; }
+  #callFab { bottom: 76px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
