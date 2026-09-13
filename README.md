@@ -1,6 +1,6 @@
 # Akdeniz Oto Bakım & Lastik Merkezi — demo site
 
-Demosantia portfolyo demosu · **Basic paket** (tek sayfa) · sektör: oto servis / lastikçi.
+Demosentia portfolyo demosu · **Basic paket** (tek sayfa) · sektör: oto servis / lastikçi.
 
 **Canlı:** https://regular07.github.io/demo-otoservis/
 
@@ -87,4 +87,4 @@ toplu değiştirin.
 
 ---
 
-Web tasarım: [Demosantia](https://regular07.github.io/demosantia/)
+Web tasarım: [Demosentia](https://regular07.github.io/demosantia/)
